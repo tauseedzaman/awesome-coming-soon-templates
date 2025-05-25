@@ -56,15 +56,30 @@
                 <i class="fab fa-instagram text-white"></i>
             </a>
         </div>
-
     </div>
 
     <script>
         // Set the launch date
-        const launchDate = new Date('2023-12-31T00:00:00').getTime();
+        const second = 1000,
+            minute = second * 60,
+            hour = minute * 60,
+            day = hour * 24;
+
+        let today = new Date(),
+            dd = String(today.getDate()).padStart(2, "0"),
+            mm = String(today.getMonth() + 1).padStart(2, "0"),
+            yyyy = today.getFullYear(),
+            nextYear = yyyy + 1,
+            dayMonth = "11/11/",
+            launchDate = dayMonth + yyyy;
+
+        today = mm + "/" + dd + "/" + yyyy;
+        if (today > _day) {
+            launchDate = dayMonth + nextYear;
+        }
 
         // Update the countdown every second
-        const interval = setInterval(function() {
+        const interval = setInterval(function () {
             const now = new Date().getTime();
             const timeRemaining = launchDate - now;
 
